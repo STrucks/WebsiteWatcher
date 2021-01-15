@@ -20,14 +20,18 @@ class WebsiteWatcher:
         """
         self._test_email()
         while True:
-            current_div = self._get_relevant_div_as_text()
-            if current_div != self.active_div:
-                print("Div has changed!!")
-                self._send_email_changed()
-                self.active_div = current_div
-            else:
-                print("[%s] Div has not changed..." % datetime.datetime.now().strftime("%c"))
-            time.sleep(300)
+            try:
+                current_div = self._get_relevant_div_as_text()
+                if current_div != self.active_div:
+                    print("Div has changed!!")
+                    self._send_email_changed()
+                    self.active_div = current_div
+                else:
+                    print("[%s] Div has not changed..." % datetime.datetime.now().strftime("%c"))
+            except Exception as e:
+                print("Something went wrong... More luck next time...")
+            finally:
+                time.sleep(300)
 
     def _get_relevant_div_as_text(self):
         response = requests.get(self.url)
