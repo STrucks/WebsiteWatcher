@@ -65,7 +65,7 @@ class WebsiteWatcher:
     def _test_email(self):
         msg = EmailMessage()
         msg['Subject'] = "Application Start"
-        msg['From'] = "chr@strucksilvanien.com"
+        msg['From'] = os.environ.get("SENDER")
         msg['To'] = os.environ.get("RECEIVER")
 
         # Send the message via our own SMTP server.
