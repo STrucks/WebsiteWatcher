@@ -26,7 +26,7 @@ class WebsiteWatcher:
                 self._send_email_changed()
                 self.active_div = current_div
             else:
-                print("Div has not changed...")
+                print("[%s] Div has not changed..." % datetime.datetime.now().strftime("%c"))
             time.sleep(300)
 
     def _get_relevant_div_as_text(self):
