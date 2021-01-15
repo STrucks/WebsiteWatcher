@@ -1,3 +1,3 @@
-SET RECEIVER="chr.strucks@gmail.com"
-SET SENDER="chr@strucksilvanien.com"
+SET RECEIVER="test.test@gmail.com"
+SET SENDER="test@test.com"
 CALL "dist/__main__.exe"
